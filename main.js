@@ -6,12 +6,13 @@ $(document).ready(init);
 
 var $template = $("#template");
 var $tableBody = $('#posts');
-var postRef;
+var postRef, globalUID;
 
 function init(){
   $("#addPost").click(addPost);
   $("tbody").on("click", ".title", seeDetails);
   $("#myModal").on("click", "#addComment", addComment);
+  $("#myModal").on("hide.bs.modal", answerModalClosed);
 }
 
 dataRef.on('value', function(snapshot){
@@ -42,16 +43,17 @@ function addPost(event){
 
 function seeDetails(){
   event.preventDefault();
-  var $row = $(this).closest("tr");
-  var uid = $row.attr("uid");
+  var row = $(this).closest("tr");
+  var uid = row.attr("uid");
+  globalUID = uid;
   postRef = dataRef.child(uid);
   var title, content, date;
 
   postRef.on('value', function(snapshot){
     var rows = [];
     snapshot.forEach(function(childSnap){
+      var key = snapshot.key();
       var comment = childSnap.val();
-      var key = childSnap.key();
       var $commentRow = $("<div>");
       $commentRow.text(comment.dateTime + ":  " + comment.content);
       rows.push($commentRow);
@@ -76,4 +78,11 @@ function addComment(){
   comment.dateTime = dateTime;
   postRef.push(comment);
   $("#answer").val("");
+}
+
+//turn off the click eventer that was opened, in order to prevent the modal box
+// from changing if someone is answering a DIFFERENT question concurrently
+function answerModalClosed(){
+  var currentKey = globalUID;
+  dataRef.child(currentKey).off();
 }
