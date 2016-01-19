@@ -71,7 +71,7 @@ function seeDetails(){
 function addComment(){
   event.preventDefault();
   var comment = {};
-  var dateTime = moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a');
+  var dateTime = moment(Date.now()).format('MMMM Do YYYY');
   comment.content = $('#answer').val();
   comment.dateTime = dateTime;
   postRef.push(comment);

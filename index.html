@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
 
-  <title>Blogger Site</title>
+  <title>Q&A Site</title>
 </head>
 <body>
   <div class="container">
@@ -47,13 +47,16 @@
           <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
-          <div id="questionDetails" class="row form-control"></div>
+          <div id="questionDetails" class="row"></div>
+          <br>
           <label>Add answer:</label>
             <textarea id="answer" type="text" class="form-control" rows="5" cols="80" placeholder="Post a response" required></textarea>
+          <br>
+          <div id="responses">Responses:</div>
           <div id="comments" class="row"></div>
         </div>
         <div class="modal-footer">
-          <button id="addComment" type="button" class="btn btn-default">Add Comment</button>
+          <button id="addComment" type="button" class="btn btn-default">Add Answer</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -62,8 +65,8 @@
     <table>
       <thead>
         <tr>
-          <th data-sort="date" class="col-xs-3">Date</th>
-          <th data-sort="title" class="col-xs-7">Question Summary</th>
+          <th class="col-xs-3">Date</th>
+          <th class="col-xs-7">Question Summary</th>
         </tr>
       </thead>
       <tbody id="posts">
@@ -75,7 +78,7 @@
     </table>
     <div class="row">
      <div class="col-xs-12" id="footer"></div>
-   </div>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
