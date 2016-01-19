@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Blogger Site</title>
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>Welcome to Paige's Q&A with Firebase Site!</h1>
+    </div>
+    <div class="page-header">
+        <div id="header" class="row">
+          <h2>New Post:</h2>
+        </div>
+      <form id="newPost">
+        <div class="row">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon">Question Title: </span>
+                  <input id="title" type="text" class="form-control" placeholder="Question summary" required>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon">Question Content: </span>
+                  <textarea id="postContent" name="postContent" rows="5" cols="80" class="form-control" placeholder="Post your detailed question here."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+            <button id="addPost" type="submit" class="btn btn-info">Add Post</button>
+          </form>
+
+          <button id="editContact" type="submit" class="btn btn-info">Make edits</button>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <div id="questionDetails" class="row form-control"></div>
+          <label>Add answer:</label>
+            <textarea id="answer" type="text" class="form-control" rows="5" cols="80" placeholder="Post a response" required></textarea>
+          <div id="comments" class="row"></div>
+        </div>
+        <div class="modal-footer">
+          <button id="addComment" type="button" class="btn btn-default">Add Comment</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th data-sort="date" class="col-xs-3">Date</th>
+          <th data-sort="title" class="col-xs-7">Title</th>
+        </tr>
+      </thead>
+      <tbody id="posts">
+        <tr id="template">
+          <td class="date"></td>
+          <td class="title"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row">
+     <div class="col-xs-12" id="footer"></div>
+   </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.0.0/lodash.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
