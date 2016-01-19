@@ -50,6 +50,11 @@ th{
   font-weight: bolder;
 }
 
+#myModal h4{
+  color: CadetBlue;
+  font-weight: bolder;
+}
+
 .input-group{
   padding-bottom: 10px;
 }
